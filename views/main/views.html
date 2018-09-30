@@ -3,22 +3,24 @@
 {% block content %}
 
 <br>
-<section class="views_main">
+<section class=" index_left">
 
 
 
     <article>
         <div class="center">
             <h1 class="views_tt">{{content.title}}</h1>
-            <span class="views_info">作者：{{author.username}}　　时间：{{content.addTime|date('Y-m-d H:i:s',8*-60)}}　　阅读量：{{content.views}}　　评论：<span id="commentNum">{{content.comments.length}}</span></span>
+            <span class="views_info">{{author.username}} · {{content.addTime|date('Y-m-d H:i:s',8*-60)}}</span></span>
         </div>
         <p>{% autoescape %}{{content.content}}{% endautoescape %}</p>
 
     </article>
 
 
-    <article>
-        <h1>评论</h1>
+
+
+    <article class="views_main commentDiv">
+        <h1 class="f18 mb20">评论</h1>
 
         {% if !userinfo.username %}
         <textarea class="comment_textarea" placeholder="请先登录再评论" id="comment_con" disabled></textarea>
@@ -32,14 +34,14 @@
         <p class="error"></p>
 
 
-        <section>
+        <section class="mt20">
             <p class="f18">最新评论</p>
             {%if content.comments.length==0%}
-                <ul>
-                    <li class="center">
-                        暂无评论
-                    </li>
-                </ul>
+            <ul>
+                <li class="center">
+                    暂无评论
+                </li>
+            </ul>
             {%else%}
             <ul class="commentList">
                 <li class="center">
@@ -55,11 +57,14 @@
         </section>
         <input type="hidden" value="{{content._id.toString()}}" id="commentsId">
     </article>
-
-
-
 </section>
-<br>
+<div class="color999 tool_bottom pc_hide">
+    <span><i class="iconfont icon-heart"> </i>{{content.views}} <div class="sutiao"></div></span>
+    <span><i class="iconfont icon-message"></i> {{content.comments.length}} <div class="sutiao"></div></span>
+    <span><i class="iconfont icon-message"></i> 评论</span>
+</div>
+
+
 <script src="/public/js/views.js"></script>
 {% endblock %}
 

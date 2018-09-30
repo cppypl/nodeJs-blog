@@ -2,16 +2,35 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <title>彭磊个人博客</title>
     <link rel="stylesheet" href="/public/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="/public/images/css_font/iconfont.css" type="text/css" />
+
     <script src="/public/js/jquery-1.12.3.min.js"></script>
     <script src="/public/js/index.js"></script>
 </head>
 <body>
 
 <header>
-    <a href="/"><h1 class="logo">随便来个LOGO</h1></a>
-    <nav>
+    <a href="/"><h1 class="logo">彭磊</h1></a>
+    {% if userinfo._id %}
+
+
+    <span class="edit_logout">
+        {% if userinfo.isAdmin %}
+        <a href="/admin">后台管理</a> ·
+        {% endif %}
+        <a href="/add_content">发帖</a> ·
+        <a href="javascript:" class="change logout">退出</a>
+    </span>
+
+
+    {%else%}
+    <span class="login_register">登录 · 注册</span>
+    {%endif%}
+
+    <nav class="head_nav">
         {% if classType=='' %}
         <a href="/" class="active">首页</a>
         {% else %}
@@ -27,6 +46,12 @@
         {% endfor %}
 
     </nav>
+
+    <span class="pc_hide menu_icon">
+        <span class="now_class">首页</span><i class="iconfont icon-down"></i>
+    </span>
+
+
 </header>
 
 <div class="main">
@@ -34,9 +59,46 @@
     {% block content %}
     {% endblock %}
 
+    <aside class="index_right">
+        {% if userinfo._id %}
+        <section class="userBox" >
+            <h1>个人中心</h1>
+            <p>您好，<span class="username">{{ userinfo.username }}</span></p>
 
+            <p>欢迎来到彭磊的博客，欢迎评论!</p>
+            <p>
+
+                {% if userinfo.isAdmin %}
+                <a href="/admin">后台管理</a>
+                {% endif %}
+                <a href="/add_content">我要发帖</a>
+                <a href="javascript:" class="change logout">退出</a>
+            </p>
+        </section>
+        {% else %}
+        <section id="register" style="display: none;">
+            <h1>注册</h1>
+            <input type="text" placeholder="用户名" name="username">
+            <input type="password" placeholder="密码" name="password">
+            <input type="password" placeholder="确认密码" name="repassword">
+            <button class="btn">注册</button>
+            <p class="error"></p>
+            <p><a href="javascript:" class="change">我要登录</a></p>
+        </section>
+        <section id="login">
+            <h1>登录</h1>
+            <input type="text" placeholder="用户名" name="username">
+            <input type="password" placeholder="密码" name="password">
+            <button class="btn">登录</button>
+            <p class="error"></p>
+            <p><a href="javascript:" class="change">我要注册</a></p>
+        </section>
+        {% endif %}
+
+
+    </aside>
 </div>
 
-
+<div class="heimu"></div>
 </body>
 </html>

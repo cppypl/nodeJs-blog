@@ -1,6 +1,10 @@
 
 $(function () {
-
+    //手机菜单
+    $('.menu_icon').on('click',function () {
+        $('.head_nav').toggle();
+        $('.heimu').show()
+    });
     //改变登录框
     $('#register .change').click(function(){
         $('#login').show();
@@ -12,6 +16,17 @@ $(function () {
         $('#register').show();
 
     });
+    $('.now_class').html( $('.head_nav .active').html())
+    
+    $('.login_register').on('click',function () {
+        $('.index_right').show();
+        $('.heimu').show()
+    })
+    $('.heimu').on('click',function () {
+        $('.index_right').hide();
+        $('.heimu').hide()
+        $('.head_nav').hide();
+    })
 
     //按回车登录\注册
     $('input[name="password"]').keyup(function (ev) {
