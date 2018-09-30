@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}<!--继承母模板-->
+
+{% block main %}
+<ol class="nowAdd">
+    <li><a href="/admin">首页>></a></li>
+    <li>分类管理</li>
+</ol>
+
+<h3>用户列表</h3>
+<span class="addClass">添加分类</span>
+<table border="1" borderColor="#dddddd" width="100%">
+    <tr>
+        <th width="300">ID</th>
+        <th>分类名称</th>
+        <th>操作</th>
+
+    </tr>
+
+    {% for num in classes %}
+    <tr>
+        <td>{{num._id.toString()}}</td>
+        <td class="classname">{{num.classname}}</td>
+        <td><a href="class_edit?id={{num._id.toString()}}">修改</a> | <a href="javascript:" class="del" id="{{num._id.toString()}}">删除</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<div class="addClassBox">
+    <h3>添加分类</h3>
+    <input type="text" placeholder="请输入分类名字" name="classname">
+    <button class="btn add">提交</button>
+</div>
+
+{% endblock%}

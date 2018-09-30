@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}<!--继承母模板-->
+
+{% block main %}
+<ol class="nowAdd">
+    <li><a href="/admin">首页>></a></li>
+    <li>分类修改</li>
+</ol>
+
+        <h3>修改分类名称</h3><br>
+        <input type="text" placeholder="请输入分类名字" name="classname"  value="{{className}}" class="editName" style="width: 300px; height:35px"><br>
+        <button class="btn editBtn">确认修改</button>
+
+        {% endblock%}

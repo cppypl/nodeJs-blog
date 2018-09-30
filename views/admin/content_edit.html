@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}<!--继承母模板-->
+
+{% block main %}
+<ol class="nowAdd">
+    <li><a href="/admin">首页>></a></li>
+    <li>新增内容</li>
+</ol>
+<h3>修改内容</h3><br>
+
+<form method="post">
+    <table>
+
+        <tr>
+            <td>分类：</td>
+            <td>
+                <select style="padding: 10px" name="classname">
+                    {%for list in classList%}
+                        {%if list._id.toString() == content.class._id.toString()  %}
+                         <option value="{{list._id.toString()}}" selected>{{list.classname}}</option>
+                        {%else%}
+                         <option value="{{list._id.toString()}}">{{list.classname}}</option>
+                        {%endif%}
+
+                    {% endfor %}
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>标题：</td>
+            <td><input type="text" placeholder="请输入标题" name="title"  value="{{content.title}}" class="editName" style="width: 300px; height:35px"></td>
+        </tr>
+        <tr>
+            <td>简介：</td>
+            <td><textarea  placeholder="请输入简介" rows="5" cols="50" name="description" >{{content.description}}</textarea></td>
+        </tr>
+        <tr>
+            <td>内容：</td>
+            <td><textarea rows="10" cols="50" placeholder="请输入内容" name="content">{{content.content}}</textarea></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><button class="btn">提交</button></td>
+        </tr>
+    </table>
+
+</form>
+
+
+{% endblock%}

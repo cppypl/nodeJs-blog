@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>彭磊个人博客</title>
+    <link rel="stylesheet" href="/public/css/main.css" type="text/css" />
+    <script src="/public/js/jquery-1.12.3.min.js"></script>
+    <script src="/public/js/index.js"></script>
+</head>
+<body>
+
+<header>
+    <a href="/"><h1 class="logo">随便来个LOGO</h1></a>
+    <nav>
+        {% if classType=='' %}
+        <a href="/" class="active">首页</a>
+        {% else %}
+        <a href="/">首页</a>
+        {% endif %}
+        {% for menu in classList %}
+        {% if menu._id==classType %}
+        <a href="/?class={{menu._id.toString()}}" class="active">{{menu.classname}}</a>
+        {% else %}
+        <a href="/?class={{menu._id.toString()}}">{{menu.classname}}</a>
+        {% endif %}
+
+        {% endfor %}
+
+    </nav>
+</header>
+
+<div class="main">
+
+    {% block content %}
+    {% endblock %}
+
+
+</div>
+
+
+</body>
+</html>

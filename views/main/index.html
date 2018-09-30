@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="index_left">
+
+
+    {% for content in contents %}
+    <article>
+        <a href="/views?contentid={{content._id.toString()}}"><h1>{{content.title}}</h1></a>
+        <span>作者：{{content.user.username}}　　时间：{{content.addTime|date('Y-m-d H:i:s',8*-60)}}　　阅读量：{{content.views}}　　评论：{{content.comments.length}}</span>
+        <p>{% autoescape %}{{content.description}}{% endautoescape %}</p>
+    </article>
+    {% endfor %}
+
+
+    {% if pages>1 %}
+    <article style=" text-align: center">
+        {% if page!=1 %}
+        <a href="/?class={{classType}}&page={{page-1}}" >上一页</a>
+        {% endif %}
+        <span>{{page}} / {{pages}}</span>
+        {% if page<pages %}
+        <a href="/?class={{classType}}&page={{page+1}}" >下一页</a>
+        {% endif %}
+    </article>
+    {% endif %}
+</section>
+<aside class="index_right">
+    {% if userinfo._id %}
+    <section class="userBox" >
+        <h1>个人中心</h1>
+        <p>您好，<span class="username">{{ userinfo.username }}</span></p>
+
+        <p>欢迎来到彭磊的博客，欢迎评论!</p>
+        <p>
+
+            {% if userinfo.isAdmin %}
+            <a href="/admin">后台管理</a>
+            {% endif %}
+            <a href="/add_content">发帖</a>
+            <a href="javascript:" class="change logout">退出</a>
+        </p>
+    </section>
+    {% else %}
+    <section id="register" style="display: none;">
+        <h1>注册</h1>
+        <input type="text" placeholder="用户名" name="username">
+        <input type="password" placeholder="密码" name="password">
+        <input type="password" placeholder="确认密码" name="repassword">
+        <button class="btn">注册</button>
+        <p class="error"></p>
+        <p><a href="javascript:" class="change">我要登录</a></p>
+    </section>
+    <section id="login">
+        <h1>登录</h1>
+        <input type="text" placeholder="用户名" name="username">
+        <input type="password" placeholder="密码" name="password">
+        <button class="btn">登录</button>
+        <p class="error"></p>
+        <p><a href="javascript:" class="change">我要注册</a></p>
+    </section>
+    {% endif %}
+
+
+</aside>
+{% endblock %}

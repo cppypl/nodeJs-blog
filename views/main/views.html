@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<br>
+<section class="views_main">
+
+
+
+    <article>
+        <div class="center">
+            <h1 class="views_tt">{{content.title}}</h1>
+            <span class="views_info">作者：{{author.username}}　　时间：{{content.addTime|date('Y-m-d H:i:s',8*-60)}}　　阅读量：{{content.views}}　　评论：<span id="commentNum">{{content.comments.length}}</span></span>
+        </div>
+        <p>{% autoescape %}{{content.content}}{% endautoescape %}</p>
+
+    </article>
+
+
+    <article>
+        <h1>评论</h1>
+
+        {% if !userinfo.username %}
+        <textarea class="comment_textarea" placeholder="请先登录再评论" id="comment_con" disabled></textarea>
+        <p class="orange">请先登录再评论！</p>
+        <button class="btn " id="commentBtn"  disabled>评论</button>
+        {% else %}
+        <textarea class="comment_textarea" placeholder="说点什么" id="comment_con"></textarea>
+        <input type="hidden" value="{{content._id.toString()}}" id="comment_id">
+        <button class="btn " id="commentBtn">评论</button>
+        {% endif %}
+        <p class="error"></p>
+
+
+        <section>
+            <p class="f18">最新评论</p>
+            {%if content.comments.length==0%}
+                <ul>
+                    <li class="center">
+                        暂无评论
+                    </li>
+                </ul>
+            {%else%}
+            <ul class="commentList">
+                <li class="center">
+                    加载评论中...
+                </li>
+            </ul>
+            {%endif%}
+
+        </section>
+
+        <section id="commentPage">
+
+        </section>
+        <input type="hidden" value="{{content._id.toString()}}" id="commentsId">
+    </article>
+
+
+
+</section>
+<br>
+<script src="/public/js/views.js"></script>
+{% endblock %}
+

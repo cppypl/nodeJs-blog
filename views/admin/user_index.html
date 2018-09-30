@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}<!--继承母模板-->
+
+{% block main %}
+<ol class="nowAdd">
+    <li><a href="/admin">首页>></a></li>
+    <li>用户管理</li>
+</ol>
+
+<h3>用户列表</h3>
+<table border="1" borderColor="#dddddd" width="100%">
+    <tr>
+        <th width="300">ID</th>
+        <th>用户名</th>
+        <th>密码</th>
+        <th>管理员</th>
+
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{user._id.toString()}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.password}}</td>
+        <td>{%if user.isAdmin%}是{%endif%}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% include 'page.html'%}
+
+{% endblock%}

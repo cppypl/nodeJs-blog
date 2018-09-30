@@ -1,0 +1,61 @@
+*{   margin: 0;    padding: 0; font-size: 14px; box-sizing: border-box}
+.f18{font-size: 18px}
+body{font-size: 12px}
+li{list-style: none}
+textarea,select{border:1px #ddd solid}
+textarea{
+    padding: 10px;}
+.orange{color: #f60}
+.t_right{text-align: right}
+.logo{
+    position: absolute; left: 20px;
+    top: 20px;
+    font-size: 36px; color: #fff}
+header{height: 300px;  width: 100%; text-align: center;background-color: cadetblue;
+    position: relative;}
+nav{ padding-top: 260px}
+nav a{padding: 10px; color:#fff; font-size: 18px; text-decoration: none}
+
+.main{background-color: #eee;
+    position: relative;}
+.index_left{ padding: 20px; padding-right: 360px;
+    }
+.index_left article{ background-color: #fff;
+    padding: 20px; margin-bottom: 20px}
+
+.index_right{ position: absolute; right: 20px;
+    top: 20px; width: 300px; }
+
+.index_right section{background-color: #fff;
+    padding: 20px; margin-bottom: 20px}
+.btn{ width: 100%;
+    height: 35px;
+    line-height: 35px;
+color: #fff;
+text-align: center;
+background-color: cadetblue; border: none; margin: 10px auto; cursor: pointer}
+.btn:hover{background-color: #72c9cc}
+
+.active{ color: #3b6163; border-bottom: 1px #3b6163 solid}
+input{
+    line-height: 35px;
+    line-height: 35px;
+text-indent: 10px;
+width: 100%; border:1px  #eee solid}
+
+.index_right input{margin: 10px 0}
+.error{color: #f60;text-align: center}
+
+.comment_textarea{
+    padding: 10px; width: 100%; box-sizing: border-box;
+    border: 1px #ddd solid;
+    height: 100px;
+    }
+.center{text-align: center}
+.commentList{border-top: 1px #ddd dashed; margin-top: 10px}
+.views_tt{font-size: 18px;}
+.views_info{line-height: 40px; color: #999}
+.commentList li{ border-bottom: 1px #ddd dashed;
+    padding:10px 0;}
+.author{ color: #999; margin-bottom: 10px}
+.views_main{ padding: 20px; width: 80%; margin: 20px auto; background: #fff}

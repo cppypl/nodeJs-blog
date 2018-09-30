@@ -1,0 +1,68 @@
+*{margin: 0; padding: 0}
+a{text-decoration: none}
+.orange{color:#f60}
+input{text-indent: 10px; border: 1px #ddd solid;}
+header{ padding: 20px; background-color: #eee; border-bottom: 1px #ddd solid}
+.right{
+    float: right;}
+.heimu{ background-color: rgba(0,0,0,.1);
+    position:fixed; width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: none;
+}
+.main{
+    padding: 20px;}
+table{ border-collapse: collapse}
+td,th{
+    padding: 10px;}
+th{background-color: #eee}
+tr:hover{ background-color: #f9f9f9}
+
+.nowAdd{ overflow: hidden; padding-bottom: 20px}
+.nowAdd li{ list-style: none;
+    float: left; padding-right: 20px; color: #999}
+
+.page{ text-align: center;}
+.page ul{ display: inline-block}
+.page li{float: left; list-style:none; padding: 10px}
+
+.addClass{
+    float: right;
+   padding: 5px 10px; display: inline-block; background: cadetblue; color: #fff; margin-bottom: 10px; cursor: pointer}
+.addClass:hover{ background-color:#72b5b7}
+.addClassBox{
+    display: none;
+    position:fixed;
+    left: 50%;
+    top: 50%; margin-left: -150px; margin-top: -200px; width:300px;
+    padding: 20px; background: #fff;
+    z-index: 1;}
+
+.addClassBox input{
+    height: 35px;
+    border: 1px #ddd solid; margin: 10px 0; text-indent: 10px; width: 100%}
+.btn {
+    max-width: 300px;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    text-align: center;
+    background-color: cadetblue;
+    border: none;
+    margin: 10px auto;
+    cursor: pointer;
+    display: inline-block;
+}
+.btn:hover{background-color: #72c9cc}
+.editBtn{ width: 300px;}
+.addCon{    float: right;
+    padding: 5px 10px;
+    display: inline-block;
+    background: cadetblue;
+    color: #fff;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
