@@ -11,7 +11,7 @@
 
 <table border="1" borderColor="#dddddd" width="100%">
     <tr>
-        <th width="300">ID</th>
+        <th width="300" style="display: none">ID</th>
         <th>分类</th>
         <th>标题</th>
         <th>作者</th>
@@ -23,7 +23,7 @@
 
    {% for num in contents %}
     <tr>
-        <td>{{num._id.toString()}}</td>
+        <td style="display: none">{{num._id.toString()}}</td>
         <td class="class">{{num.class.classname}}</td>
         <td>{{num.title}}</td>
         <td>{{num.user.username}}</td>

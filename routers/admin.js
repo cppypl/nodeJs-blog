@@ -260,13 +260,7 @@ router.post('/content/add',function (req,res) {
         });
         return
     }
-    if(req.body.description==''){
-        res.render('admin/tips.html',{
-            userinfo:req.userinfo,
-            message:'简介不能为空'
-        });
-        return
-    }
+
     if(req.body.content==''){
         res.render('admin/tips.html',{
             userinfo:req.userinfo,
@@ -280,7 +274,7 @@ router.post('/content/add',function (req,res) {
         class:req.body.classname,
         title:req.body.title,
         user:req.userinfo._id.toString(),
-        description:getFormatCode(req.body.description),
+        description:req.body.content.slice(0,60),
         content:getFormatCode(req.body.content)
     }).save().then(function () {
         res.render('admin/tips.html',{

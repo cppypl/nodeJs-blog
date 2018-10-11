@@ -3,6 +3,9 @@
 {% block content %}
 
 <br>
+<script src="/public/ueditor/ueditor.config.js"></script>
+<script src="/public/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script src="/public/ueditor/ueditor.all.min.js"></script>
 <section class="addBox" >
 
     <article>
@@ -26,13 +29,17 @@
                     <td>标题：</td>
                     <td><input type="text" placeholder="请输入标题" name="title"  value="" class="editName" style="width: 100%; height:35px"></td>
                 </tr>
-                <tr>
+               <!-- <tr>
                     <td>简介：</td>
                     <td><textarea  placeholder="请输入简介" rows="5" style="width:100%" name="description" ></textarea></td>
-                </tr>
+                </tr>-->
                 <tr>
                     <td>内容：</td>
-                    <td><textarea rows="10"  style="width:100%"  placeholder="请输入内容" name="content"></textarea></td>
+                    <td>
+                        <script id="container" name="content" type="text/plain" style="width:100%;height:300px;"></script>
+                        <script type="text/javascript">
+                        var ue = UE.getEditor('container');
+                    </script></td>
                 </tr>
 
                 <tr>

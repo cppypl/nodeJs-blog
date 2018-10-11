@@ -3,8 +3,12 @@ $(function () {
     //手机菜单
     $('.menu_icon').on('click',function () {
         $('.head_nav').toggle();
-        $('.heimu').show()
     });
+    //头像菜单
+    $('.edit_logout').click(function () {
+        $(this).children('.user_menu').toggle()
+    })
+    
     //改变登录框
     $('#register .change').click(function(){
         $('#login').show();
@@ -25,7 +29,6 @@ $(function () {
     $('.heimu').on('click',function () {
         $('.index_right').hide();
         $('.heimu').hide()
-        $('.head_nav').hide();
     })
 
     //按回车登录\注册

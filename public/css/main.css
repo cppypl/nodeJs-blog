@@ -1,7 +1,12 @@
 *{   margin: 0;    padding: 0; font-size: 14px; box-sizing: border-box}
 a{ color: #007fff;  text-decoration:none}
 .f18{font-size: 18px}
-body{font-size: 12px; background-color: #f0f0f0; padding-top: 80px}
+.f20{font-size: 20px}
+.f24{font-size: 24px}
+.f26{font-size:26px}
+.f36{font-size:36px}
+
+body{font-size: 12px; background-color: #f0f0f0; padding: 80px 0 60px}
 li{list-style: none}
 .color999{color: #999}
 .mt20{margin-top: 20px}
@@ -15,12 +20,15 @@ li{list-style: none}
 }
 textarea,select{border:1px #ddd solid}
 textarea{
-    padding: 10px;}
+    padding: 10px;
+    background-color: #f9f9f9;
+}
 .orange{color: #f60}
 .t_right{text-align: right}
 .logo{
-    position: absolute; left: 20px;
-    top: 14px;
+    float: left;
+    margin-left: 10px;
+    line-height: 60px;
     font-size: 22px; color: #fff}
 header{height: 60px;  width: 100%; background-color: #007fff;
     position:fixed; top:0;left: 0; text-align: center;
@@ -53,7 +61,7 @@ text-align: center;
 background-color: #007fff; border: none; margin: 10px auto; cursor: pointer}
 .btn:hover{background-color: #72c9cc}
 
-.active{ border-bottom: 1px #fff solid; font-weight: bold}
+header .active{ border-bottom: 1px #fff solid; font-weight: bold}
 input{
     line-height: 35px;
     line-height: 35px;
@@ -92,13 +100,30 @@ table td{padding: 10px 0}
     float: right;
     line-height: 60px; color: #fff; margin-right: 10px}
 .edit_logout{
-    float: right;
+    float: right; position: relative;
     line-height: 60px; color: #fff; margin-right: 10px}
 .tool span{
     padding: 3px 15px;border: 1px #ddd solid;    border-radius: 2px; font-size: 12px;
 }
 .tool span:last-child{margin-left: -1px}
-.edit_logout a{color: #fff}
+.edit_logout a{
+    display: block; height: 40px;
+    line-height: 40px; color: #777; text-align: left; padding-left: 20px}
+
+
+.user_menu{
+    display: none;    background: #fff;
+    position: absolute;
+    top: 60px;
+    width: 150px;
+    right: 0px;
+    z-index: 1;
+    color: #000;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+    border: 1px solid #ddd;
+    border-radius: 4px;}
+.edit_logout img{ border-radius: 50%; width:30px;
+    height: 30px; margin-top: 14px}
 @media screen and (max-width:768px) {
     .index_right{display: none; width: 90%;
         position:fixed;
@@ -117,13 +142,21 @@ table td{padding: 10px 0}
     .m_table tr td:first-child{display: none}
     .m_table select{width: 100%}
     .menu_icon{
-       float: left; margin-left: 100px; font-size: 28px!important; color: #fff; line-height: 54px}
+       float: left; margin-left: 20px; font-size: 28px!important; color: #fff; line-height: 54px}
     header nav{position: absolute;
-        top: 60px; background: #fff;
-        z-index: 1; width: 100%; border-top:1px #ddd solid; display: none}
+        top: 60px;
+        background: #fff;
+        z-index: 1;
+        display: none;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+        border-radius: 4px;
+        border: 1px #ddd solid;
+        width: 100px;
+        left: 40px;
+    }
     header nav a{width: 100%;
         display: block;
-        color: #333;
+        color: #777;
         font-size: 14px;
         text-align: center;
         line-height: 30px; border-bottom: 1px #ddd solid !important;
@@ -137,6 +170,7 @@ table td{padding: 10px 0}
     bottom: 0;
     line-height: 48px;
     background: #fff;
+    border-top: 1px #ddd solid;
 }
 .tool_bottom span{
     float: left;
@@ -152,3 +186,28 @@ table td{padding: 10px 0}
         background-color: #ddd;
     }
 }
+
+
+.ucenter_top{ text-align: center; padding: 40px; background-color: #fff;    box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);}
+.ucenter_top img{width: 90px;
+    height: 90px; border-radius: 50%}
+.ucenter_top .editBtn{border:1px #007fff solid; border-radius: 3px; padding: 5px 10px}
+.ucenter_top .discription{
+    line-height: 30px; color: #666}
+.ucenter_bottom{ box-shadow: 0 1px 2px 0 rgba(0,0,0,.05); background-color: #fff; margin-top: 10px}
+.ucenter_bottom .head{ height: 50px;
+    line-height: 50px; border-bottom: 1px #ddd solid}
+.ucenter_bottom .head li{width: 50%;
+    float:left; text-align: center;
+    position: relative;}
+.ucenter_bottom .head li .sutiao{ height: 20px; width: 1px;
+    position: absolute; right: 0; top:14px; background: #ddd}
+.ucenter_bottom .head li.active{     box-shadow: inset 0 -2px 0 #3780f7; color: #007fff}
+.ucenter_bottom .content .tt{font-size:16px; color: #007fff; line-height: 30px}
+.ucenter_bottom .content .discription{color: #666; line-height: 25px}
+.ucenter_bottom .content li{ border-bottom: 1px #eee solid;
+    padding: 20px; overflow: hidden}
+.ucenter_bottom .content li:last-child{border-bottom: none}
+.content_list .discription{color: #777}
+
+.ucenter_bottom .content .comments{color: #777; margin-bottom: 10px}

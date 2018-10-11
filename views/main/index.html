@@ -5,13 +5,15 @@
 
 
     {% for content in contents %}
-    <article class="content_list">
-        <a href="/views?contentid={{content._id.toString()}}"><h1>{{content.title}}</h1></a>
-        <span class="color999">{{content.user.username}} · {{content.addTime|date('Y-m-d H:i:s',8*-60)}}</span>
-        <p class="discription">{% autoescape %}{{content.description}}{% endautoescape %}</p>
+    <a href="/views?contentid={{content._id.toString()}}">
+        <article class="content_list">
+            <h1>{{content.title}}</h1>
+            <span class="color999">{{content.user.username}} · {{content.addTime|date('Y-m-d H:i:s',8*-60)}}</span>
+            <p class="discription">{{content.description}}</p>
 
-        <div class="color999 tool"><span><i class="iconfont icon-heart"> </i>{{content.views}}</span><span><i class="iconfont icon-message"></i> {{content.comments.length}}</span></div>
-    </article>
+            <div class="color999 tool"><span><i class="iconfont icon-heart"> </i>{{content.views}}</span><span><i class="iconfont icon-message"></i> {{content.comments.length}}</span></div>
+        </article>
+    </a>
     {% endfor %}
 
 

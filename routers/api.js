@@ -64,6 +64,7 @@ router.post('/user/register',function(req,res){
         return user.save();
     }).then(function (newUserInfo) {
         resData.message='注册成功';
+        console.log(newUserInfo)
         req.cookies.set('userinfo',JSON.stringify({
             _id:newUserInfo._id,
             username:newUserInfo.username
@@ -105,7 +106,7 @@ router.post('/user/login',function(req,res){
         req.cookies.set('userinfo',JSON.stringify({
             _id:userInfo._id,
             username:userInfo.username
-        }),{expires:new Date(Date.now() + 900000)});
+        }),{expires:new Date(Date.now() + 9000000)});
         res.json(resData);
         return;
     });

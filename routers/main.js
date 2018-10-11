@@ -104,7 +104,7 @@ router.get('/views/commentsList',function (req,res) {
     Content.findOne({
         _id:id
     }).then(function (con) {
-        var newCommentsList=con.comments.slice(start,end);
+        var newCommentsList=con.comments.slice(start,end).reverse();
         resData.comments=newCommentsList;
         resData.pages=Math.ceil(con.comments.length/limit);
         resData.pageNum=pageNum;
@@ -123,7 +123,28 @@ router.get('/add_content',function (req,res) {
 
 //发帖
 router.post('/add_content',function (req,res) {
+    if(!req.userinfo._id){
+        res.render('main/complate.html',{
+            message:'还没有登录呢'
+        });
+        return
+    }
 
+    if(req.body.title==''){
+        res.render('main/complate.html',{
+            userinfo:req.userinfo,
+            message:'标题不能为空'
+        });
+        return
+    }
+
+    if(req.body.content==''){
+        res.render('main/complate.html',{
+            userinfo:req.userinfo,
+            message:'内容不能为空'
+        });
+        return
+    }
 
     Content.findOne({
         title:req.body.title
@@ -137,7 +158,7 @@ router.post('/add_content',function (req,res) {
                 class:req.body.classname,
                 title:req.body.title,
                 user:req.userinfo._id.toString(),
-                description:getFormatCode(req.body.description),
+                description:req.body.content.replace(/<[^>]+>/g,"").slice(0,60),
                 content:getFormatCode(req.body.content)
             }).save().then(function () {
                 data.message='恭喜您，发布成功！'
@@ -145,8 +166,39 @@ router.post('/add_content',function (req,res) {
             });
         }
     })
+
 })
 
+//个人中心
+router.get('/ucenter',function (req,res) {
+    if(!data.userinfo._id){
+        res.render('main/complate.html',{
+            message:'您还没登录，请点击右上角登录！'
+        });
+        return
+    }
 
+    var where={};
+    data.artLength=0;
+    data.commentsLength=0;
+    Content.find().then(function (contents) {
+        data.content=contents;
+        for(var i=0; i<contents.length;i++){
+
+            if(contents[i].user==data.userinfo._id){
+                data.artLength++
+            }
+
+            for(var y=0;y<contents[i].comments.length;y++){
+                if(contents[i].comments[y].username==data.userinfo.username){
+                    data.commentsLength++
+                }
+            }
+        }
+        console.log(data);
+        res.render('main/ucenter.html',data)
+    })
+
+})
 module.exports=router;
 

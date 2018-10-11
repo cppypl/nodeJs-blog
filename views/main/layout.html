@@ -18,11 +18,17 @@
 
 
     <span class="edit_logout">
-        {% if userinfo.isAdmin %}
-        <a href="/admin">后台管理</a> ·
-        {% endif %}
-        <a href="/add_content">发帖</a> ·
-        <a href="javascript:" class="change logout">退出</a>
+        <span style=" vertical-align: top">{{userinfo.username}}&nbsp</span>
+        <img src="/public/images/touxiang.jpg">
+        <div class="user_menu">
+
+            <a href="/add_content"><i class="iconfont icon-edit-square"></i> 写文章</a>
+            <a href="/ucenter"><i class="iconfont icon-user"></i> 个人中心</a>
+            {% if userinfo.isAdmin %}
+            <a href="/admin"><i class="iconfont icon-menu"></i> 后台管理</a>
+            {% endif %}
+            <a href="javascript:" class="change logout"><i class="iconfont icon-export"></i> 退出</a>
+        </div>
     </span>
 
 
@@ -60,22 +66,7 @@
     {% endblock %}
 
     <aside class="index_right">
-        {% if userinfo._id %}
-        <section class="userBox" >
-            <h1>个人中心</h1>
-            <p>您好，<span class="username">{{ userinfo.username }}</span></p>
 
-            <p>欢迎来到彭磊的博客，欢迎评论!</p>
-            <p>
-
-                {% if userinfo.isAdmin %}
-                <a href="/admin">后台管理</a>
-                {% endif %}
-                <a href="/add_content">我要发帖</a>
-                <a href="javascript:" class="change logout">退出</a>
-            </p>
-        </section>
-        {% else %}
         <section id="register" style="display: none;">
             <h1>注册</h1>
             <input type="text" placeholder="用户名" name="username">
@@ -93,7 +84,6 @@
             <p class="error"></p>
             <p><a href="javascript:" class="change">我要注册</a></p>
         </section>
-        {% endif %}
 
 
     </aside>

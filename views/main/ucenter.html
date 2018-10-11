@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<script src="/public/js/ucenter.js"></script>
+<section class="ucenter_top">
+    <img src="/public/images/touxiang.jpg">
+    <p class="f24">{{userinfo.username}}</p>
+    <p class="discription">有点懒，都没有个人介绍</p>
+    <a href="#" class="editBtn">编辑个人资料</a>
+</section>
+
+<section class="ucenter_bottom">
+    <ul class="head">
+        <li class="active">我的文章 <span>{{artLength}}</span><div class="sutiao"></div></li>
+        <li>我的评论 <span>{{commentsLength}}</span></li>
+    </ul>
+    <ul class="content">
+        {% for con in content.reverse() %}
+            {% if con.user==userinfo._id %}
+            <li>
+                <a href="/views?contentid={{con._id.toString()}}">
+                    <div class="tt">{{con.title}}</div>
+                    <p class="discription">{{con.description}}</p>
+                    <div class="color999 tool"><div style="display: inline-block; float: right">{{con.addTime|date('Y-m-d H:i:s',8*-60)}}</div><span><i class="iconfont icon-heart"> </i>{{con.views}}</span><span><i class="iconfont icon-message"></i> {{con.comments.length}}</span></div>
+                </a>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <ul class="content" style="display: none">
+        {% for item in content %}
+            {% for comment in item.comments.reverse() %}
+                {% if comment.username==userinfo.username %}
+                <li>
+                    <a href="/views?contentid={{item._id.toString()}}">
+                        <div class="comments">{{comment.commentCon}}</div>
+                        <div class="color999 tool"><div style="display: inline-block; float: right">{{comment.username}} · {{comment.postTime|date('Y-m-d H:i:s',8*-60)}}</div></div>
+                    </a>
+                </li>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</section>
+
+{% endblock %}

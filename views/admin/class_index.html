@@ -10,7 +10,7 @@
 <span class="addClass">添加分类</span>
 <table border="1" borderColor="#dddddd" width="100%">
     <tr>
-        <th width="300">ID</th>
+        <th width="300" style="display: none">ID</th>
         <th>分类名称</th>
         <th>操作</th>
 
@@ -18,7 +18,7 @@
 
     {% for num in classes %}
     <tr>
-        <td>{{num._id.toString()}}</td>
+        <td style="display: none">{{num._id.toString()}}</td>
         <td class="classname">{{num.classname}}</td>
         <td><a href="class_edit?id={{num._id.toString()}}">修改</a> | <a href="javascript:" class="del" id="{{num._id.toString()}}">删除</a></td>
     </tr>
