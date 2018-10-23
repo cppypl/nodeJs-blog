@@ -64,7 +64,6 @@ router.post('/user/register',function(req,res){
         return user.save();
     }).then(function (newUserInfo) {
         resData.message='注册成功';
-        console.log(newUserInfo)
         req.cookies.set('userinfo',JSON.stringify({
             _id:newUserInfo._id,
             username:newUserInfo.username
