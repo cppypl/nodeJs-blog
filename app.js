@@ -85,9 +85,6 @@ app.use(function (req,res,next) {
 swig.setDefaults({cache:false});
 
 
-
-
-
 app.use('/admin',require('./routers/admin'));
 app.use('/api',require('./routers/api'));
 app.use('/',require('./routers/main'));
@@ -100,5 +97,3 @@ mongoose.connect('mongodb://localhost:27017/blog',{useNewUrlParser:true},functio
         app.listen(80);
     }
 })
-
-
