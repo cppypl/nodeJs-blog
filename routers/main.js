@@ -195,7 +195,6 @@ router.get('/ucenter',function (req,res) {
                 }
             }
         }
-        console.log(data);
         res.render('main/ucenter.html',data)
     })
 

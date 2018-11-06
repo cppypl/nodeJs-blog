@@ -77,10 +77,10 @@ width: 100%; border:1px  #eee solid}
     height: 100px;
     }
 .center{text-align: center}
-.commentList{border-top: 1px #ddd dashed; margin-top: 10px}
+.commentList,.lingshiBox{border-top: 1px #ddd dashed; margin-top: 10px}
 .views_tt{font-size: 18px;}
 .views_info{line-height: 40px; color: #999}
-.commentList li{ border-bottom: 1px #ddd dashed;
+.commentList li,.lingshiBox li{ border-bottom: 1px #ddd dashed;
     padding:10px 0;}
 .author{ color: #999; margin-bottom: 10px}
 .views_main{ padding: 20px; margin: 0 auto; background: #fff}

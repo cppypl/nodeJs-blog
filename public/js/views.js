@@ -64,7 +64,8 @@ $(function () {
             dataType:'json',
             success:function (res) {
                 if(!res.code){
-                    $('.commentList').prepend('<li><div class="author">'+res.username +' </div><div>'+strContent+'</div><p class="t_right">'+postData+'</p></li>');
+                    $('.lingshiBox').html('');
+                    $('.lingshiBox,.commentList').prepend('<li><div class="author">'+res.username +' </div><div>'+strContent+'</div><p class="t_right">'+postData+'</p></li>');
                     $('#commentNum').html(parseInt($('#commentNum').html())+1);
                     $('#comment_con').val('')
                 }else{
