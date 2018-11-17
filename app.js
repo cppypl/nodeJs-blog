@@ -85,6 +85,7 @@ app.use(function (req,res,next) {
 swig.setDefaults({cache:false});
 
 
+
 app.use('/admin',require('./routers/admin'));
 app.use('/api',require('./routers/api'));
 app.use('/',require('./routers/main'));
