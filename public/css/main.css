@@ -66,10 +66,12 @@ textarea {
 }
 .logo {
   float: left;
-  margin-left: 10px;
+  margin-left: 20px;
   line-height: 60px;
-  font-size: 22px;
-  color: #fff;
+  background: url(../images/logo.png) no-repeat center center;
+  background-size: contain;
+  height: 60px;
+  width: 60px;
 }
 header {
   height: 60px;

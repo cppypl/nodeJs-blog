@@ -199,5 +199,11 @@ router.get('/ucenter',function (req,res) {
     })
 
 })
+//发帖页路由
+router.get('/about',function (req,res) {
+
+    res.render('main/about.html',data)
+
+});
 module.exports=router;
 

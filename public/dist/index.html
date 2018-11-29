@@ -1,0 +1,16 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=0,minimum-scale=1,maximum-scale=1"><title>vue-kugou</title><link href=/public/dist/static/css/app.4f5dcf8edfe1b651257942bf76ee7331.css rel=stylesheet></head><script>//设置HTML的font-zise
+(function (doc, win) {
+  var docEl = doc.documentElement,
+ resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+ recalc = function () {
+   var clientWidth = docEl.clientWidth;
+   if (!clientWidth) return;
+   docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+ };
+  if (!doc.addEventListener) return;
+  win.addEventListener(resizeEvt, recalc, false);
+  doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+//end</script><body><div id=app></div><script type=text/javascript src=/public/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js></script>
+<script type=text/javascript src=/public/dist/static/js/vendor.02ed369d3e8bc8a512fc.js></script>
+<script type=text/javascript src=/public/dist/static/js/app.7ecb250b5ee08e46da66.js></script></body></html>
