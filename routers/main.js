@@ -200,9 +200,9 @@ router.get('/ucenter',function (req,res) {
 
 })
 //发帖页路由
-router.get('/about',function (req,res) {
+router.get('/resume',function (req,res) {
 
-    res.render('main/about.html',data)
+    res.render('main/resume.html',data)
 
 });
 module.exports=router;
